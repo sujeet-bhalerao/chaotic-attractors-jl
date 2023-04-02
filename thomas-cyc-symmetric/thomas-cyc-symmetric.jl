@@ -3,7 +3,7 @@ gr()
 
 # Define the Thomas' Cyclically Symmetric Attractor
 Base.@kwdef mutable struct ThomasAttractor
-    dt::Float64 = 0.05
+    dt::Float64 = 0.15
     b::Float64 = 0.1999
     x::Float64 = 1.0
     y::Float64 = 0.0
@@ -35,9 +35,9 @@ plt = plot3d(
 )
 
 # Build an animated gif by pushing new points to the plot, saving every 5th frame
-anim = @animate for i = 1:10_000
+anim = @animate for i = 1:2_000
     step!(attractor)
     push!(plt, attractor.x, attractor.y, attractor.z)
-    plot!(plt, camera=(10, 10))
-end every 100
+    plot!(plt, camera=(10+ 0.1 * i, 10))
+end every 10
 gif(anim, "thomas_cyc_symmetric.gif", fps = 30)

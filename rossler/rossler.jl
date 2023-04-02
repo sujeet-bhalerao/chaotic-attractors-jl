@@ -37,9 +37,9 @@ plt = plot3d(
 )
 
 # Build an animated gif by pushing new points to the plot, saving every 5th frame
-anim = @animate for i = 1:5_000
+anim = @animate for i = 1:3_000
     step!(attractor)
     push!(plt, attractor.x, attractor.y, attractor.z)
-    plot!(plt, camera=(10, 30))
+    plot!(plt, camera=(10+ 0.1*i, 30))
 end every 10
 gif(anim, "rossler_attractor.gif", fps = 30)
