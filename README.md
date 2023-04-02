@@ -1,0 +1,1 @@
+Visualization of some chaotic attractors using Plots.jl, similar to the [example of the Lorenz attractor](https://docs.juliaplots.org/latest/user_gallery/misc/gr_lorenz_attractor/#Lorenz-Attractor) in the docs.
